@@ -1,15 +1,11 @@
-public class Calculator {
-    private double first;
-    private double second;
-    private int operation;
+import java.util.InputMismatchException;
 
-    public Calculator(double first, double second, int operation) {
-        this.first = first;
-        this.second = second;
-        this.operation = operation;
+public class Calculator {
+
+    public Calculator() {
     }
 
-    public double makeCalculation() {
+    public double makeCalculation(double first, double second, int operation) throws InputMismatchException {
         switch (operation) {
             //  1 - умножение, 2 - сложение, 3 - вычитание, 4 - деление
             case 1:
@@ -21,9 +17,11 @@ public class Calculator {
             case 3:
                 Subtraction sb = new Subtraction();
                 return sb.calculateResult(first, second);
-            default:
+            case 4:
                 Division div = new Division();
                 return div.calculateResult(first, second);
+            default:
+                throw new InputMismatchException();
         }
     }
 }

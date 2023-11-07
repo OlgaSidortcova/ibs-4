@@ -19,18 +19,13 @@ public class Basic {
                     " 3 - вычитание,\n 4 - деление");
             op = scanner.nextInt();
 
-            if ((op != 1) && (op != 2) && (op != 3) && (op != 4)) {
-                System.out.println("Вы ввели некорректное значение операции");
-            } else {
-                System.out.println("Результат операции ");
-                Calculator calculator = new Calculator(i, j, op);
-                System.out.printf("%.4f", calculator.makeCalculation());
-            }
+            System.out.println("Результат операции ");
+            Calculator calculator = new Calculator();
+            System.out.printf("%.4f", calculator.makeCalculation(i, j, op));
 
         } catch (InputMismatchException e) {
             System.out.println("Произошла ошибка при обработке операнда или оператора: " + e);
-        }
-        catch (ArithmeticException e) {
+        } catch (ArithmeticException e) {
             System.out.println("Результат операции отсуствует, т.к. на ноль делить нельзя");
         }
         scanner.close();
